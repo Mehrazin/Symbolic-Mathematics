@@ -101,7 +101,7 @@ class Trainer(object):
         """
         self.n_iter += 1
         self.n_total_iter += 1
-        # self.print_stats()
+        self.print_stats()
 
     def print_stats(self):
         """
@@ -270,3 +270,5 @@ class Trainer(object):
         self.n_equations += self.config.batch_size
         self.stats['processed_e'] += len_x.size(0)
         self.stats['processed_w'] += (len_x + len_y - 2).sum().item()
+        # Deletes data on CUDA to free its memory
+        del x, len_x, y, len_y, t, alen, pred_mask

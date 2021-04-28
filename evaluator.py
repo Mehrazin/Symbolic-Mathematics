@@ -189,3 +189,5 @@ class Evaluator(object):
                 continue
             # logger.info(f"{i}: {n_valid[i].item()} / {n_total[i].item()} ({100. * n_valid[i].item() / max(n_total[i].item(), 1)}%)")
             scores[f'{data_type}_{task}_acc_{i}'] = 100. * n_valid[i].item() / max(n_total[i].item(), 1)
+        # Deletes data on CUDA to free its memory
+        del x, len_x, y, len_y, t, alen, o

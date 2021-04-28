@@ -6,8 +6,9 @@ import pickle
 import torch
 from logger import create_logger
 
+
 class Config():
-    def __init__(self):
+    def __init__(self, arg):
         # Define dataset path
         self.exp_type = 'Prime_BWD'
         self.Dataset_dir = os.path.join(os.getcwd(), 'Dataset' , self.exp_type)
@@ -19,7 +20,10 @@ class Config():
         self.dump_path = os.path.join(os.getcwd(), 'Dumped')
         if not os.path.exists(self.dump_path):
             os.mkdir(self.dump_path)
-        self.exp_id = self.get_exp_id()
+        if arg.exp_id == 0 :
+            self.exp_id = self.get_exp_id()
+        else :
+            self.exp_id = arg.exp_id
         self.exp_dir = os.path.join(self.dump_path, str(self.exp_id))
         if not os.path.exists(self.exp_dir):
             os.mkdir(self.exp_dir)
@@ -29,39 +33,41 @@ class Config():
         self.task = 'prim_bwd'
         self.rewrite_functions = ''
         self.clean_prefix_expr = True
-        self.env_seed = 0
-        self.reload_size = 40000
+        self.env_seed = arg.env_seed
+        self.reload_size = arg.reload_size
         self.eos_index = 0
         self.pad_index = 1
 
         #Training configurations
         self.eval_only = False
-        self.epoch_size = 300000
-        self.batch_size = 10
-        self.learning_rate = 0.0001
-        self.clip_grad_norm = 5
+        self.epoch_size = arg.epoch_size
+        self.batch_size = arg.batch_size
+        self.max_epoch = arg.max_epoch
+        self.learning_rate = arg.learning_rate
+        self.clip_grad_norm = arg.clip_grad_norm
         self.stopping_criterion = ''
         self.validation_metrics = 'valid_prim_bwd_acc'
-        self.load_model = False
+        self.load_model = arg.load_model
         self.model_path = os.path.join(os.getcwd(), 'trained', 'model.pth')
-        self.reload_checkpoint = ''
-        self.save_periodic = 100
-        self.beam_eval = False
-        self.eval_verbose = 0
-        self.eval_verbose_print = False
+        self.reload_checkpoint = arg.reload_checkpoint
+        self.save_periodic = arg.save_periodic
+        self.eval_verbose = arg.eval_verbose
+        self.eval_only = arg.eval_only
+        self.eval_verbose_print = arg.eval_verbose_print
         if self.load_model:
             assert os.path.exists(self.model_path)
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
         # Model configurations
-        self.model_dim = 512
-        self.num_head = 8
-        self.forward_expansion = 4
-        self.max_position = 4096
-        self.num_enc_layer = 6
-        self.num_dec_layer = 6
-        self.share_inout_emb = True
-
+        self.model_type = arg.model_type
+        self.model_dim = arg.model_dim
+        self.num_head = arg.num_head
+        self.forward_expansion = arg.forward_expansion
+        self.max_position = arg.max_position
+        self.num_enc_layer = arg.num_enc_layer
+        self.num_dec_layer = arg.num_dec_layer
+        self.share_inout_emb = arg.share_inout_emb
+        self.save()
     def get_exp_id(self):
         """
         Returns an integer as an experiment id.
@@ -101,3 +107,7 @@ class Config():
         logger.info("Running command: %s" % command)
         logger.info("")
         return logger
+    def save(self):
+        path = os.path.join(self.exp_dir, 'config.pkl')
+        with open(path, 'wb') as f:
+            pickle.dump(self, f)

@@ -13,6 +13,8 @@ import signal
 from functools import wraps, partial
 
 
+FALSY_STRINGS = {'off', 'false', '0'}
+TRUTHY_STRINGS = {'on', 'true', '1'}
 
 SPECIAL_WORDS = ['<s>', '</s>', '<pad>', '(', ')']
 SPECIAL_WORDS = SPECIAL_WORDS + [f'<SPECIAL_{i}>' for i in range(len(SPECIAL_WORDS), 10)]
@@ -39,6 +41,17 @@ class InvalidPrefixExpression(Exception):
 class TimeoutError(BaseException):
     pass
 
+def bool_flag(s):
+    """
+    Parse boolean arguments from the command line.
+    """
+    if s.lower() in FALSY_STRINGS:
+        return False
+    elif s.lower() in TRUTHY_STRINGS:
+        return True
+    else:
+        raise argparse.ArgumentTypeError("Invalid value for a boolean flag!")
+        
 def timeout(seconds=10, error_message=os.strerror(errno.ETIME)):
 
     def decorator(func):
