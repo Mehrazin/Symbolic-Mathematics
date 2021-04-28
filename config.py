@@ -1,4 +1,7 @@
 import os
+import argparse
+import pickle
+import torch
 
 class Config():
     def __init__(self):
@@ -19,6 +22,7 @@ class Config():
             os.mkdir(self.exp_dir)
 
         # Experimental setup
+        self.n_words = 0
         self.task = 'prim_bwd'
         self.rewrite_functions = ''
         self.clean_prefix_expr = True
@@ -32,6 +36,20 @@ class Config():
         self.batch_size = 10
         self.learning_rate = 0.0001
 
+        self.load_model = False
+        self.model_path = os.path.join(os.getcwd(), 'trained', 'model.pth.tar')
+        if self.load_model:
+            assert os.path.exists(self.model_path)
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+        # Model configurations
+        self.model_dim = 512
+        self.num_head = 8
+        self.forward_expansion = 4
+        self.max_position = 4096
+        self.num_enc_layer = 6
+        self.num_dec_layer = 6
+        self.share_inout_emb = True
 
     def get_exp_id(self):
         """

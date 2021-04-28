@@ -208,7 +208,7 @@ class EnvHndler():
         self.id2word = {i: s for i, s in enumerate(self.words)}
         self.word2id = {s: i for i, s in self.id2word.items()}
         assert len(self.words) == len(set(self.words))
-
+        self.n_words = config.n_words = len(self.words)
         self.eos_index = config.eos_index
         self.pad_index = config.pad_index
 

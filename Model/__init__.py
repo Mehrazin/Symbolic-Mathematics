@@ -7,8 +7,8 @@ def build_model(config) :
     """
 
     model = {}
-    model['encoder'] =
-    model['decoder'] =
+    # model['encoder'] =
+    # model['decoder'] =
 
     if config.load_model:
         checkpoint = torch.load(config.model_path)
