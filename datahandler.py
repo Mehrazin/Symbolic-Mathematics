@@ -39,7 +39,7 @@ class MathData(Dataset):
         if self.dtype == 'train':
             self.size = 1 << 60
         else:
-            self.size = len(self.data)
+            self.size = 5000
 
     def __len__(self):
         """
