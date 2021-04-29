@@ -82,7 +82,9 @@ def get_parser():
                         help="Number of epochs")
 
     # reload data
-    parser.add_argument("--reload_size", type=int, default=40000000,
+    parser.add_argument("--train_reload_size", type=int, default=10000,
+                        help="Reloaded training set size (-1 for everything)")
+    parser.add_argument("--test_reload_size", type=int, default=500,
                         help="Reloaded training set size (-1 for everything)")
 
     # reload pretrained model / checkpoint

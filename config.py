@@ -34,7 +34,8 @@ class Config():
         self.rewrite_functions = ''
         self.clean_prefix_expr = True
         self.env_seed = arg.env_seed
-        self.reload_size = arg.reload_size
+        self.train_reload_size = arg.train_reload_size
+        self.test_reload_size = arg.test_reload_size
         self.eos_index = 0
         self.pad_index = 1
 

@@ -27,19 +27,23 @@ class MathData(Dataset):
         if self.dtype == 'train':
             with io.open(self.path, mode='r', encoding='utf-8') as f:
                 for i, line in enumerate(f):
-                    if i == config.reload_size:
+                    if i == config.train_reload_size:
                         break
                     else:
                         lines.append(line.rstrip().split('|'))
         else:
             with io.open(self.path, mode='r', encoding='utf-8') as f:
-                lines = [line.rstrip().split('|') for line in f]
+                for i, line in enumerate(f):
+                    if i == config.test_reload_size:
+                        break
+                    else:
+                        lines.append(line.rstrip().split('|'))
         self.data = [xy.split('\t') for _, xy in lines]
         self.data = [xy for xy in self.data if len(xy) == 2]
         if self.dtype == 'train':
             self.size = 1 << 60
         else:
-            self.size = 5000
+            self.size = confi.test_reload_size
 
     def __len__(self):
         """
