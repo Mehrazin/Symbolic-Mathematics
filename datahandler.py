@@ -43,7 +43,7 @@ class MathData(Dataset):
         if self.dtype == 'train':
             self.size = 1 << 60
         else:
-            self.size = confi.test_reload_size
+            self.size = config.test_reload_size
 
     def __len__(self):
         """
