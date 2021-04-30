@@ -2,9 +2,6 @@
 __pycache__
 .ipynb_checkpoints/
 
-#Dataset
-prim_bwd.test
-prim_bwd.train
-prim_bwd.valid
+
 #Experiment output
 Dumped/

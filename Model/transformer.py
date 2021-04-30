@@ -8,6 +8,9 @@ import torch.nn.functional as F
 import math
 
 def Embedding(input_dim, model_dim, pad_idx=None, positional_embedding=False):
+    """
+    Upon choice, creates a positional or normal embedding layer
+    """
     m = nn.Embedding(input_dim, model_dim, padding_idx=pad_idx)
     nn.init.normal_(m.weight, mean=0, std=model_dim ** -0.5)
     if pad_idx is not None:
@@ -64,6 +67,9 @@ def get_masks(slen, lengths, causal, config):
     return mask, attn_mask
 
 class Multi_Head_Attention(nn.Module):
+    """
+    Creates the Multi Head Attention block in transformers
+    """
     def __init__(self, config):
         super(Multi_Head_Attention, self).__init__()
         self.model_dim = config.model_dim
@@ -78,6 +84,9 @@ class Multi_Head_Attention(nn.Module):
         self.to_out = nn.Linear(self.head_dim*self.num_head, self.model_dim)
 
     def forward(self, Q, K, V, mask):
+        """
+        Run the forward path
+        """
         # Q: (N, qlen, dm) K: (N, klen, dm) V:(N, vlen, dm)
         N, qlen, dm = Q.size()
         _, klen, _ = K.size()
@@ -98,6 +107,9 @@ class Multi_Head_Attention(nn.Module):
         return out
 
 class Feed_Forward(nn.Module):
+    """
+    the feed forward neural network block in the transformer model
+    """
     def __init__(self, config):
         super(Feed_Forward, self).__init__()
         self.input_dim = config.model_dim
@@ -113,6 +125,9 @@ class Feed_Forward(nn.Module):
         return self.fc(x)
 
 class EncoderBlock(nn.Module):
+    """
+    The Encoder block of transformer
+    """
     def __init__(self, config):
         super(EncoderBlock, self).__init__()
         self.model_dim = config.model_dim
@@ -139,6 +154,9 @@ class EncoderBlock(nn.Module):
 
 
 class DecoderBlock(nn.Module):
+    """
+    The Decoder block of transformer
+    """
     def __init__(self, config):
         super(DecoderBlock, self).__init__()
         self.model_dim = config.model_dim
@@ -172,6 +190,9 @@ class DecoderBlock(nn.Module):
         return out
 
 class Transformers(nn.Module):
+    """
+    Creates the transformer model besed on the parameters int the config instance
+    """
     def __init__(self, config):
         super(Transformers, self).__init__()
         self.config = config
@@ -215,6 +236,9 @@ class Transformers(nn.Module):
             raise Exception(f"Invalid mode: {mode}")
 
     def Encode(self, x, len_x):
+        """
+        Encodes the input sequence using the encoder block
+        """
         # x: (slen, N) lenghts: (N)
         slen, N = x.size()
         assert len_x.size(0) == N
@@ -239,6 +263,9 @@ class Transformers(nn.Module):
         return tensor
 
     def Decode(self, y, len_y, encoded, len_enc):
+        """
+        Decodes the input sequence using the output of the encoder block
+        """
         # y: (tlen, N) len_y: (N)
         tlen, N = y.size()
         _, slen, _ = encoded.size()

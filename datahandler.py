@@ -4,6 +4,9 @@ import io
 import numpy as np
 
 class MathData(Dataset):
+    """
+    This class creates an interface for the dataset for the DataLoader function
+    """
     def __init__(self, config, env, dtype):
         super(MathData, self).__init__()
         self.data = []

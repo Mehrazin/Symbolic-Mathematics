@@ -8,6 +8,9 @@ from logger import create_logger
 
 
 class Config():
+    """
+    This class is responsible for organizing the current experiment configurations across all the units
+    """
     def __init__(self, arg):
         # Define dataset path
         self.exp_type = 'Prime_BWD'

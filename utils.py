@@ -51,9 +51,11 @@ def bool_flag(s):
         return True
     else:
         raise argparse.ArgumentTypeError("Invalid value for a boolean flag!")
-        
-def timeout(seconds=10, error_message=os.strerror(errno.ETIME)):
 
+def timeout(seconds=10, error_message=os.strerror(errno.ETIME)):
+    """
+    Sets a timeout to terminate the current process. This is for making SymPy to avoid an infinite loop
+    """
     def decorator(func):
 
         def _handle_timeout(repeat_id, signum, frame):
@@ -142,6 +144,9 @@ def is_valid_expr(s):
     return False
 
 class EnvHndler():
+    """
+    This class contains the necessary tools and attribute for the current experiment like the vocabulary and symbol tokenizer.
+    """
     SYMPY_OPERATORS = {
         # Elementary functions
         sp.Add: 'add',

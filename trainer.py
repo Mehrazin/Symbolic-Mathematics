@@ -16,7 +16,9 @@ from utils import to_cuda
 logger = getLogger()
 
 class Trainer(object):
-
+    """
+    This class is responsible for training the model
+    """
     EQUATIONS = {}
 
     def __init__(self, config, env, model):
