@@ -1,0 +1,92 @@
+INFO - 04/29/21 06:59:05 - 0:00:00 - ============ Initialized logger ============
+INFO - 04/29/21 06:59:05 - 0:00:00 - Dataset_dir: /home/mehrazinalizadeh/Symbolic-Mathematics/Dataset/Prime_BWD
+                                     batch_size: 32
+                                     clean_prefix_expr: True
+                                     clip_grad_norm: 5
+                                     command: python main.py --epoch_size 512 --batch_size 32 --max_epoch 10000 --train_reload_size 512 --test_reload_size 32 --save_periodic 50 --exp_id "2"
+                                     device: cuda
+                                     dump_path: /home/mehrazinalizadeh/Symbolic-Mathematics/Dumped
+                                     env_seed: 0
+                                     eos_index: 0
+                                     epoch_size: 512
+                                     eval_only: False
+                                     eval_verbose: 0
+                                     eval_verbose_print: False
+                                     exp_dir: /home/mehrazinalizadeh/Symbolic-Mathematics/Dumped/2
+                                     exp_id: 2
+                                     exp_type: Prime_BWD
+                                     forward_expansion: 4
+                                     learning_rate: 0.0001
+                                     load_model: False
+                                     max_epoch: 10000
+                                     max_position: 4096
+                                     model_dim: 512
+                                     model_path: /home/mehrazinalizadeh/Symbolic-Mathematics/trained/model.pth
+                                     model_type: Transformers
+                                     n_words: 0
+                                     num_dec_layer: 6
+                                     num_enc_layer: 6
+                                     num_head: 8
+                                     pad_index: 1
+                                     reload_checkpoint: 
+                                     rewrite_functions: 
+                                     save_periodic: 50
+                                     share_inout_emb: True
+                                     stopping_criterion: 
+                                     task: prim_bwd
+                                     test_dir: /home/mehrazinalizadeh/Symbolic-Mathematics/Dataset/Prime_BWD/prim_bwd.test
+                                     test_reload_size: 32
+                                     train_dir: /home/mehrazinalizadeh/Symbolic-Mathematics/Dataset/Prime_BWD/prim_bwd.train
+                                     train_reload_size: 512
+                                     valid_dir: /home/mehrazinalizadeh/Symbolic-Mathematics/Dataset/Prime_BWD/prim_bwd.valid
+                                     validation_metrics: valid_prim_bwd_acc
+INFO - 04/29/21 06:59:05 - 0:00:00 - The experiment will be stored in /home/mehrazinalizadeh/Symbolic-Mathematics/Dumped/2
+                                     
+INFO - 04/29/21 06:59:05 - 0:00:00 - Running command: python main.py --epoch_size 512 --batch_size 32 --max_epoch 10000 --train_reload_size 512 --test_reload_size 32 --save_periodic 50
+
+INFO - 04/29/21 06:59:12 - 0:00:07 - ============ Starting epoch 0 ... ============
+INFO - 04/29/21 06:59:14 - 0:00:09 - ============ End of epoch 0 ============
+INFO - 04/29/21 06:59:14 - 0:00:09 - 0/32
+INFO - 04/29/21 06:59:14 - 0:00:09 - 0/32 (0.0%) equations were evaluated correctly.
+INFO - 04/29/21 06:59:14 - 0:00:09 - 0/32
+INFO - 04/29/21 06:59:14 - 0:00:09 - 0/32 (0.0%) equations were evaluated correctly.
+INFO - 04/29/21 06:59:14 - 0:00:09 - epoch -> 0.000000
+INFO - 04/29/21 06:59:14 - 0:00:09 - valid_prim_bwd_xe_loss -> 28.864211
+INFO - 04/29/21 06:59:14 - 0:00:09 - valid_prim_bwd_acc -> 0.000000
+INFO - 04/29/21 06:59:14 - 0:00:09 - valid_prim_bwd_acc_7 -> 0.000000
+INFO - 04/29/21 06:59:14 - 0:00:09 - valid_prim_bwd_acc_8 -> 0.000000
+INFO - 04/29/21 06:59:14 - 0:00:09 - valid_prim_bwd_acc_9 -> 0.000000
+INFO - 04/29/21 06:59:14 - 0:00:09 - valid_prim_bwd_acc_10 -> 0.000000
+INFO - 04/29/21 06:59:14 - 0:00:09 - valid_prim_bwd_acc_11 -> 0.000000
+INFO - 04/29/21 06:59:14 - 0:00:09 - valid_prim_bwd_acc_12 -> 0.000000
+INFO - 04/29/21 06:59:14 - 0:00:09 - valid_prim_bwd_acc_13 -> 0.000000
+INFO - 04/29/21 06:59:14 - 0:00:09 - valid_prim_bwd_acc_14 -> 0.000000
+INFO - 04/29/21 06:59:14 - 0:00:09 - valid_prim_bwd_acc_15 -> 0.000000
+INFO - 04/29/21 06:59:14 - 0:00:09 - valid_prim_bwd_acc_17 -> 0.000000
+INFO - 04/29/21 06:59:14 - 0:00:09 - valid_prim_bwd_acc_18 -> 0.000000
+INFO - 04/29/21 06:59:14 - 0:00:09 - valid_prim_bwd_acc_23 -> 0.000000
+INFO - 04/29/21 06:59:14 - 0:00:09 - test_prim_bwd_xe_loss -> 29.082935
+INFO - 04/29/21 06:59:14 - 0:00:09 - test_prim_bwd_acc -> 0.000000
+INFO - 04/29/21 06:59:14 - 0:00:09 - test_prim_bwd_acc_5 -> 0.000000
+INFO - 04/29/21 06:59:14 - 0:00:09 - test_prim_bwd_acc_6 -> 0.000000
+INFO - 04/29/21 06:59:14 - 0:00:09 - test_prim_bwd_acc_7 -> 0.000000
+INFO - 04/29/21 06:59:14 - 0:00:09 - test_prim_bwd_acc_8 -> 0.000000
+INFO - 04/29/21 06:59:14 - 0:00:09 - test_prim_bwd_acc_9 -> 0.000000
+INFO - 04/29/21 06:59:14 - 0:00:09 - test_prim_bwd_acc_10 -> 0.000000
+INFO - 04/29/21 06:59:14 - 0:00:09 - test_prim_bwd_acc_11 -> 0.000000
+INFO - 04/29/21 06:59:14 - 0:00:09 - test_prim_bwd_acc_12 -> 0.000000
+INFO - 04/29/21 06:59:14 - 0:00:09 - test_prim_bwd_acc_13 -> 0.000000
+INFO - 04/29/21 06:59:14 - 0:00:09 - test_prim_bwd_acc_14 -> 0.000000
+INFO - 04/29/21 06:59:14 - 0:00:09 - test_prim_bwd_acc_15 -> 0.000000
+INFO - 04/29/21 06:59:14 - 0:00:09 - test_prim_bwd_acc_17 -> 0.000000
+INFO - 04/29/21 06:59:14 - 0:00:09 - __log__:{"epoch": 0, "valid_prim_bwd_xe_loss": 28.864211350679398, "valid_prim_bwd_acc": 0.0, "valid_prim_bwd_acc_7": 0.0, "valid_prim_bwd_acc_8": 0.0, "valid_prim_bwd_acc_9": 0.0, "valid_prim_bwd_acc_10": 0.0, "valid_prim_bwd_acc_11": 0.0, "valid_prim_bwd_acc_12": 0.0, "valid_prim_bwd_acc_13": 0.0, "valid_prim_bwd_acc_14": 0.0, "valid_prim_bwd_acc_15": 0.0, "valid_prim_bwd_acc_17": 0.0, "valid_prim_bwd_acc_18": 0.0, "valid_prim_bwd_acc_23": 0.0, "test_prim_bwd_xe_loss": 29.08293465524912, "test_prim_bwd_acc": 0.0, "test_prim_bwd_acc_5": 0.0, "test_prim_bwd_acc_6": 0.0, "test_prim_bwd_acc_7": 0.0, "test_prim_bwd_acc_8": 0.0, "test_prim_bwd_acc_9": 0.0, "test_prim_bwd_acc_10": 0.0, "test_prim_bwd_acc_11": 0.0, "test_prim_bwd_acc_12": 0.0, "test_prim_bwd_acc_13": 0.0, "test_prim_bwd_acc_14": 0.0, "test_prim_bwd_acc_15": 0.0, "test_prim_bwd_acc_17": 0.0}
+INFO - 04/29/21 06:59:14 - 0:00:09 - New best score for valid_prim_bwd_acc: 0.000000
+INFO - 04/29/21 06:59:14 - 0:00:09 - Saving best-valid_prim_bwd_acc to /home/mehrazinalizadeh/Symbolic-Mathematics/Dumped/2/best-valid_prim_bwd_acc.pth ...
+WARNING - 04/29/21 06:59:14 - 0:00:09 - Saving Model parameters ...
+WARNING - 04/29/21 06:59:14 - 0:00:09 - Saving Model optimizer ...
+INFO - 04/29/21 06:59:15 - 0:00:10 - Saving periodic-0 to /home/mehrazinalizadeh/Symbolic-Mathematics/Dumped/2/periodic-0.pth ...
+WARNING - 04/29/21 06:59:15 - 0:00:10 - Saving Model parameters ...
+WARNING - 04/29/21 06:59:15 - 0:00:10 - Saving Model optimizer ...
+INFO - 04/29/21 06:59:15 - 0:00:11 - Saving checkpoint to /home/mehrazinalizadeh/Symbolic-Mathematics/Dumped/2/checkpoint.pth ...
+WARNING - 04/29/21 06:59:15 - 0:00:11 - Saving Model parameters ...
+WARNING - 04/29/21 06:59:15 - 0:00:11 - Saving Model optimizer ...

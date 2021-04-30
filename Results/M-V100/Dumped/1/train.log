@@ -1,0 +1,48 @@
+INFO - 04/29/21 06:57:47 - 0:00:00 - ============ Initialized logger ============
+INFO - 04/29/21 06:57:47 - 0:00:00 - Dataset_dir: /home/mehrazinalizadeh/Symbolic-Mathematics/Dataset/Prime_BWD
+                                     batch_size: 32
+                                     clean_prefix_expr: True
+                                     clip_grad_norm: 5
+                                     command: python main.py --epoch_size 512 --batch_size 32 --max_epoch 10000 --train_reload_size 512 --test_reload_size 32 --save_periodic 50 --exp_id "1"
+                                     device: cuda
+                                     dump_path: /home/mehrazinalizadeh/Symbolic-Mathematics/Dumped
+                                     env_seed: 0
+                                     eos_index: 0
+                                     epoch_size: 512
+                                     eval_only: False
+                                     eval_verbose: 0
+                                     eval_verbose_print: False
+                                     exp_dir: /home/mehrazinalizadeh/Symbolic-Mathematics/Dumped/1
+                                     exp_id: 1
+                                     exp_type: Prime_BWD
+                                     forward_expansion: 4
+                                     learning_rate: 0.0001
+                                     load_model: False
+                                     max_epoch: 10000
+                                     max_position: 4096
+                                     model_dim: 512
+                                     model_path: /home/mehrazinalizadeh/Symbolic-Mathematics/trained/model.pth
+                                     model_type: Transformers
+                                     n_words: 0
+                                     num_dec_layer: 6
+                                     num_enc_layer: 6
+                                     num_head: 8
+                                     pad_index: 1
+                                     reload_checkpoint: 
+                                     rewrite_functions: 
+                                     save_periodic: 50
+                                     share_inout_emb: True
+                                     stopping_criterion: 
+                                     task: prim_bwd
+                                     test_dir: /home/mehrazinalizadeh/Symbolic-Mathematics/Dataset/Prime_BWD/prim_bwd.test
+                                     test_reload_size: 32
+                                     train_dir: /home/mehrazinalizadeh/Symbolic-Mathematics/Dataset/Prime_BWD/prim_bwd.train
+                                     train_reload_size: 512
+                                     valid_dir: /home/mehrazinalizadeh/Symbolic-Mathematics/Dataset/Prime_BWD/prim_bwd.valid
+                                     validation_metrics: valid_prim_bwd_acc
+INFO - 04/29/21 06:57:47 - 0:00:00 - The experiment will be stored in /home/mehrazinalizadeh/Symbolic-Mathematics/Dumped/1
+                                     
+INFO - 04/29/21 06:57:47 - 0:00:00 - Running command: python main.py --epoch_size 512 --batch_size 32 --max_epoch 10000 --train_reload_size 512 --test_reload_size 32 --save_periodic 50
+
+INFO - 04/29/21 06:57:58 - 0:00:11 - ============ Starting epoch 0 ... ============
+INFO - 04/29/21 06:58:00 - 0:00:13 - ============ End of epoch 0 ============
